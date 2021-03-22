@@ -1,0 +1,19 @@
+# main deps
+Django==3.1.7
+asgiref==3.3.1
+psycopg2-binary==2.8.6
+djangorestframework==3.12.2
+django-cors-headers==3.7.0
+django-nested-admin==3.3.3
+django-filter==2.4.0
+coreapi==2.3.3
+django-redis-cache==3.0.0
+
+# other deps
+coverage==5.5
+Pillow==8.1.2
+django-dbbackup==3.3.0
+
+# huey MQ
+huey==2.3.1
+redis==3.5.3

@@ -1,0 +1,30 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Django ###
+*.log
+*.pot
+*.pyc
+*.sqlite3
+*.sqlite3-journal
+settings_local.py
+__pycache__/
+
+.coverage
+.vscode/
+.idea/
+.spyproject/
+.vscode/
+/static/
+media/
+frontend/
+log/
+config.bat
+web.config
+dump.rdb
+backups/
+
+env/
+venv/
