@@ -1,0 +1,14 @@
+SECRET_KEY = generated secret key
+DEBUG = True
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  #Postgresql
+        'NAME': Your DB name,
+        'USER': Your DB user,
+        'PASSWORD': Your DB pwd,
+        'HOST': Your DB host,
+        'PORT': Your DB port,
+    }
+}
