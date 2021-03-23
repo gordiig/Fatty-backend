@@ -29,7 +29,7 @@ class SignUpSerializer(serializers.Serializer):
 
     def create(self, validated_data) -> User:
         if validated_data['password'] != validated_data['password_confirm']:
-            raise serializers.ValidationError({'error': 'Passwords don\'t match'})
+            raise serializers.ValidationError({'error': 'Пароли не совпадают'})
         try:
             user = User.objects.create_user(
                 username=validated_data['username'],
@@ -37,7 +37,7 @@ class SignUpSerializer(serializers.Serializer):
                 email=validated_data.get('email', ''),
             )
         except IntegrityError:
-            raise serializers.ValidationError({'error': 'User with given credentials already exists'})
+            raise serializers.ValidationError({'error': 'Юзер с переданными данными уже существует'})
         return user
 
 
@@ -51,9 +51,9 @@ class ChangePasswordSerializer(serializers.Serializer):
 
     def update(self, instance: User, validated_data):
         if not instance.check_password(validated_data['old_password']):
-            raise serializers.ValidationError({'error': 'Wrong old password'})
+            raise serializers.ValidationError({'error': 'Старый пароль введен неправильно'})
         if validated_data['password'] != validated_data['password_confirm']:
-            raise serializers.ValidationError({'error': 'Passwords don\'t match'})
+            raise serializers.ValidationError({'error': 'Пароли не совпадают'})
         instance.set_password(validated_data['password'])
         instance.save()
         return instance
