@@ -27,6 +27,7 @@ class ExerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exercise
         fields = [
+            'id',
             'name',
             'muscle_type'
         ]
@@ -48,6 +49,7 @@ class ExerciseSetSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExerciseSet
         fields = [
+            'id',
             'index_number',
             'exercise',
             'reps',
@@ -72,18 +74,19 @@ class TrainingListSerializer(serializers.ModelSerializer):
     """
     Списковый сериализатор тренировок
     """
-    user = IdOnWriteSerializerOnReadField(
-        child_serializer=UserSerializer(),
-        queryset=User.objects.all(),
-        message='Данного пользователя не существует',
-    )
+    user = UserSerializer(read_only=True)
+    date = serializers.DateTimeField(required=False)
 
     class Meta:
         model = Training
         fields = [
+            'id',
             'date',
             'user',
         ]
+
+    def create(self, validated_data):
+        return Training.objects.create(user=self.context['request'].user, **validated_data)
 
 
 class TrainingSerializer(TrainingListSerializer):
