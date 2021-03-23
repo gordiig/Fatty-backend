@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.views import APIView, Response, Request
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, RetrieveDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, RetrieveDestroyAPIView, CreateAPIView
 from Trainings.models import Exercise, ExerciseSet, Training
 from Trainings.serializers import ExerciseSerializer, ExerciseSetSerializer, TrainingSerializer, TrainingListSerializer
 
@@ -28,6 +28,13 @@ class ExercisesView(ListCreateAPIView):
 
     def get_queryset(self):
         return Exercise.objects.all()
+
+
+class CreateExerciseSetView(CreateAPIView):
+    """
+    Вьюха создания подхода
+    """
+    serializer_class = ExerciseSetSerializer
 
 
 class ExerciseSetView(RetrieveUpdateDestroyAPIView):
