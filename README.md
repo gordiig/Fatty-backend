@@ -4,7 +4,7 @@
 ### Uses:
 * [Python 3.9](https://www.python.org/downloads/)
 * [Redis](https://redis.io/download)
-* [PostgreSQL](https://www.postgresql.org/download/)
+* [PostgreSQL 12](https://www.postgresql.org/download/)
 * [Django 3.1.7](https://docs.djangoproject.com/en/3.1/releases/3.1.7/)
 * [DRF 3.12.2](https://www.django-rest-framework.org/community/release-notes/#312x-series)
 * [Huey 2.3.1](https://huey.readthedocs.io/en/latest/index.html)
