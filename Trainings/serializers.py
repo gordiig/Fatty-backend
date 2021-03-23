@@ -15,11 +15,13 @@ class ExerciseSerializer(serializers.ModelSerializer):
     """
     muscle_type = serializers.ChoiceField(choices=Exercise.MUSCLE_CHOICES)
     name = serializers.CharField(
-        validators=validators.UniqueValidator(
-            queryset=Exercise.objects.all(),
-            message='Такое упражнение уже есть в базе, алло',
-            lookup='iexact'
-        )
+        validators=[
+            validators.UniqueValidator(
+                queryset=Exercise.objects.all(),
+                message='Такое упражнение уже есть в базе, алло',
+                lookup='iexact'
+            )
+        ]
     )
 
     class Meta:
