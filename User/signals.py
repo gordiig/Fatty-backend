@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from rest_framework.authtoken.models import Token
+from Goals.models import DailyEatingGoals
 
 User = get_user_model()
 
@@ -12,3 +13,5 @@ def on_user_create(sender, instance, created, **kwargs):
         return
     # Creating Token
     Token.objects.create(user=instance)
+    # Creating eating goal
+    DailyEatingGoals.objects.create(user=instance)
