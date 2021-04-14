@@ -1,4 +1,3 @@
-from django.db import models
 from django.contrib.postgres.fields import CIEmailField
 from django.contrib.auth.models import AbstractUser
 

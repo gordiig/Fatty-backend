@@ -25,13 +25,6 @@
     $ python manage.py runserver
     ```
    
-If you have `citext` errors, run in terminal under `psql`
-```shell
-    user# \c <table_name>
-    user# CREATE EXTENSION citext;
-```
-Where `<table_name>` is your DB table name
-   
 ### To run Huey
 1. Run redis in separate term window
     ```shell
@@ -53,11 +46,3 @@ Where `<table_name>` is your DB table name
     $ coverage run --source='.' manage.py test -v 3
     $ coverage report --skip-covered
     ```
-
-If you have `citext` errors, run in terminal under `psql`
-```shell
-    user# \c test_<table_name>
-    user# CREATE EXTENSION citext;
-```
-Where `<table_name>` is your DB table name.
-Also, you will need to run tests with `--keepdb` key.
